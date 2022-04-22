@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"io"
 	"log"
 	"net/http"
 
@@ -130,7 +131,18 @@ func testSfu(w http.ResponseWriter, r *http.Request) {
 		_, raw, err := conn.ReadMessage()
 		if err != nil {
 			log.Println(err)
-			return
+			if err == io.EOF {
+				for i := range roomUser[rid] {
+					if i != uid {
+						_ = roomUser[rid][i].conn.WriteJSON(&WsMsg{
+							Event: LEAVE_ROOM,
+							Data:  uid,
+						})
+					}
+				}
+				return
+			}
+			continue
 		} else if err := json.Unmarshal(raw, &message); err != nil {
 			log.Println(err)
 			return
