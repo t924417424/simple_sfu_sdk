@@ -30,7 +30,7 @@ func initPeer(u *userInfo) (err error) {
 	// track事件,从客户端track创建服务的track,用于转发
 	peerConnection.OnTrack(func(tr *webrtc.TrackRemote, r *webrtc.RTPReceiver) {
 		trackLocal := u.setTrack(tr)
-		defer u.remoteTrack(trackLocal)
+		defer u.removeTrack(trackLocal)
 		buf := make([]byte, 1500)
 		u.signalPeerConnections()
 		for {

@@ -59,6 +59,6 @@ func (u *userInfo) setTrack(t *webrtc.TrackRemote) *webrtc.TrackLocalStaticRTP {
 	return trackLocal
 }
 
-func (u *userInfo) remoteTrack(track *webrtc.TrackLocalStaticRTP) {
+func (u *userInfo) removeTrack(track *webrtc.TrackLocalStaticRTP) {
 	u.trackLocals = nil
 }
