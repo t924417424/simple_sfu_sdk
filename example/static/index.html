@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='sfu.js'></script>
+</head>
+<style>
+    .v>video {
+        width: 160;
+        height: 120
+    }
+</style>
+
+<body>
+    <div>
+        房间号 : <input id="rid" />
+    </div>
+    <div>
+        用户ID : <input id="uid" />
+    </div>
+    <input type="button" value="加入房间" id="join_btn" onclick="join_room()" />
+    <video id="localVideo" width="160" height="120" autoplay muted></video> <br />
+    <div id="video_layer" class="v"></div>
+    <div id="log"></div>
+</body>
+
+</html>
