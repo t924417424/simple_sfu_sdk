@@ -109,8 +109,8 @@ func testSfu(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 
-	// 注意调用这个函数,内部逻辑为当最后一个用户离开房间,则关闭房间
 	defer func() {
+		// 注意调用这个函数,内部逻辑为当最后一个用户离开房间,则关闭房间
 		leaveFn()
 		// 向房间内所有用户广播某用户离开,这里可以做一下房间删除逻辑
 		for i := range roomUser[rid] {
