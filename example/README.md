@@ -1,5 +1,5 @@
 # SFU测试例子
-> 启动信令服务器  `go run ./sfu.go`
+> 启动信令服务器  `go run ./example/sfu.go`
 
 > 浏览器打开 `http://127.0.0.1:8081/`
 
